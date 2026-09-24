@@ -10,17 +10,17 @@ If `.env` has no token, `data/` has no module plan, or `my-profile.md` is missin
 
 1. `my-profile.md`: the student's campus, program, progress, preferences and blocked dates. If it is missing, ask for the essentials in one question (campus, program, what they passed, what they still need, constraints) and write `my-profile.md` from `my-profile.example.md`.
 2. `data/*.pdf`: the module plan (Modulhandbuch, study plan, FPSO). It is the authority on which module counts for which category, ECTS, and exam format. If `data/` holds no module plan, ask the student to add one (see `docs/3-add-your-study-plan.md`) before you recommend modules.
-3. TUMonline via `tumonline.py`: what actually runs this semester, when, where, and who teaches it.
+3. TUMonline via `scripts/tumonline.py`: what actually runs this semester, when, where, and who teaches it.
 
 ## Tools
 
 ```bash
-python3 tumonline.py status                          # token check
-python3 tumonline.py search "<text>" --semester 26W [--campus Garching]  # fuzzy, campus matches first (*)
-python3 tumonline.py module <CODE> [--name "<module name>"] --semester 26W  # all courses of a module: dates, lecturers, exam mode
-python3 tumonline.py course <ID>                     # one course by TUMonline id
-python3 tumonline.py fetch <codes.txt> --semester 26W --out data/modules.json
-python3 check_plan.py <CODE> <CODE> ... [--busy busy.json] [--skip "CODE:Mo 16:15"]
+python3 scripts/tumonline.py status                          # token check
+python3 scripts/tumonline.py search "<text>" --semester 26W [--campus Garching]  # fuzzy, campus matches first (*)
+python3 scripts/tumonline.py module <CODE> [--name "<module name>"] --semester 26W  # all courses of a module: dates, lecturers, exam mode
+python3 scripts/tumonline.py course <ID>                     # one course by TUMonline id
+python3 scripts/tumonline.py fetch <codes.txt> --semester 26W --out data/modules.json
+python3 scripts/check_plan.py <CODE> <CODE> ... [--busy busy.json] [--skip "CODE:Mo 16:15"]
 ```
 
 Semester ids: `26W` = winter 2026/27, `27S` = summer 2027.
@@ -43,7 +43,7 @@ Semester ids: `26W` = winter 2026/27, `27S` = summer 2027.
 - **Search is fuzzy.** A name search returns courses from every campus and program. Use `module <CODE>`: it keeps only courses with the exact module code in their title. When you search by name, check the chair and room before trusting a hit.
 - **Some courses omit the code in their title.** Always pass the module name too (`--name`, or `CODE  # Name` lines for `fetch`). Results marked `"matched_by": "name"` are a best guess: check chair and campus before you use them.
 - **One module has several courses.** Lecture (VO), exercise (UE) and seminar (SE) are separate entries. `module` collects them all. Look at all of them before calling a slot free.
-- **Alternative groups.** Some exercises run in parallel groups. The student attends one. Use `--skip` in `check_plan.py` for the group they will not take.
+- **Alternative groups.** Some exercises run in parallel groups. The student attends one. Use `--skip` in `scripts/check_plan.py` for the group they will not take.
 - **"Fach" (FA) entries without dates** mean the module exists but is not scheduled (yet). Report it as "no dates", not as "free".
 - **Exam format is often empty** in TUMonline. Read it from the handbook ("Beschreibung der Studien-/Prüfungsleistungen").
 - **Exam dates come late.** TUMonline publishes them weeks into the semester. Say "not published yet" instead of guessing, and give the lecture period end as the earliest likely exam time.
@@ -57,7 +57,7 @@ Semester ids: `26W` = winter 2026/27, `27S` = summer 2027.
 1. A weekly grid (days × time slots) of the proposed plan.
 2. ECTS per category: required, done, planned, still open.
 3. Per module: category, ECTS, slot, lecturer, exam format, when it is due.
-4. Clashes with other courses and with the student's commitments, date by date, from `check_plan.py`.
+4. Clashes with other courses and with the student's commitments, date by date, from `scripts/check_plan.py`.
 5. Open questions and deadlines: applications, recognitions, missing exam dates.
 
 Lead with the recommendation. Keep alternatives short. If the student's constraints conflict, say which one breaks and ask.

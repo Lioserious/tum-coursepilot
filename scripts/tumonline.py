@@ -2,12 +2,12 @@
 """Small TUMonline client for course planning. Python standard library only.
 
 Usage:
-    python tumonline.py status
-    python tumonline.py search "Deep Reinforcement Learning" --semester 26W --campus Heilbronn
-    python tumonline.py module WIHN0033 --semester 26W
-    python tumonline.py course 950945134
-    python tumonline.py module MGTHN0189 --name "Marketing Research" --semester 26W
-    python tumonline.py fetch data/candidates.txt --semester 26W --out data/modules.json
+    python scripts/tumonline.py status
+    python scripts/tumonline.py search "Deep Reinforcement Learning" --semester 26W --campus Heilbronn
+    python scripts/tumonline.py module WIHN0033 --semester 26W
+    python scripts/tumonline.py course 950945134
+    python scripts/tumonline.py module MGTHN0189 --name "Marketing Research" --semester 26W
+    python scripts/tumonline.py fetch data/candidates.txt --semester 26W --out data/modules.json
 
 Your token is read from .env (TUMONLINE_TOKEN=...) or the environment and is never printed.
 """
@@ -30,7 +30,8 @@ MODULE_CODE = re.compile(r"\b[A-Z]{2,6}\d{4,6}[A-Z]?\b")
 
 
 def load_token():
-    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    # .env lives in the repo root, one level above scripts/
+    env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
     if os.path.exists(env_path):
         with open(env_path) as f:
             for line in f:

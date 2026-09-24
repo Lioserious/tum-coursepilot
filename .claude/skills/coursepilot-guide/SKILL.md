@@ -13,7 +13,7 @@ Check quietly, without printing secrets:
 
 - `python3 --version` (3.8 or newer needed)
 - Does `.env` exist, and is `TUMONLINE_TOKEN=` filled? Test with `grep -c '^TUMONLINE_TOKEN=.\+' .env`. Never `cat .env`.
-- `python3 tumonline.py status` if a token exists
+- `python3 scripts/tumonline.py status` if a token exists
 - `ls data/` for a module plan PDF and a transcript
 - Does `my-profile.md` exist?
 
@@ -29,7 +29,7 @@ Only if the status check failed.
    Do not fetch this URL yourself.
 3. Tell them: copy the 32 characters between `<token>` and `</token>`, run `cp .env.example .env` if needed, and paste the token into `.env` after `TUMONLINE_TOKEN=`. **Ask them not to paste the token into the chat.** If they do anyway, write it into `.env` for them, never repeat it, and suggest requesting a fresh token later.
 4. Activation: TUMonline sends a link to their **TUM mailbox**. Or they search "Token" in TUMonline to find the token management. Grant the right for course information (Lehrveranstaltungen).
-5. Run `python3 tumonline.py status` until it says `Token works.` Explain errors with the table in `docs/1-get-your-token.md`.
+5. Run `python3 scripts/tumonline.py status` until it says `Token works.` Explain errors with the table in `docs/1-get-your-token.md`.
 
 ## Step 2: Module plan and transcript
 

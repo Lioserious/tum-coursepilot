@@ -47,8 +47,8 @@ Prefer to read first? The guide follows these docs:
 
 | File | What it does |
 |---|---|
-| `tumonline.py` | Talks to TUMonline: token check, course search (with campus sorting), all courses of a module, full course details |
-| `check_plan.py` | Checks a set of modules for clashes, date by date, including your own fixed commitments |
+| `scripts/tumonline.py` | Talks to TUMonline: token check, course search (with campus sorting), all courses of a module, full course details |
+| `scripts/check_plan.py` | Checks a set of modules for clashes, date by date, including your own fixed commitments |
 | `CLAUDE.md` | Tells Claude how to use the tools and which TUMonline pitfalls to avoid |
 | `.claude/skills/coursepilot-guide/` | The setup guide behind `/start`: asks questions, checks every step |
 | `.claude/commands/start.md` | `/start`, guided setup |

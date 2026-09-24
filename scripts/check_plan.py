@@ -2,9 +2,9 @@
 """Check a set of modules for time clashes, date by date.
 
 Usage:
-    python check_plan.py WIHN0033 MGTHN0130 MGTHN0112
-    python check_plan.py WIHN0033 MGTHN0130 --busy busy.json --data data/modules.json
-    python check_plan.py MGTHN0112 WIHN0033 --skip "MGTHN0112:Mo 16:15"   # you pick the other exercise group
+    python scripts/check_plan.py WIHN0033 MGTHN0130 MGTHN0112
+    python scripts/check_plan.py WIHN0033 MGTHN0130 --busy busy.json --data data/modules.json
+    python scripts/check_plan.py MGTHN0112 WIHN0033 --skip "MGTHN0112:Mo 16:15"   # you pick the other exercise group
 
 busy.json lists your fixed commitments (job, teaching, sports):
     [{"date": "2026-11-05", "start": "08:00", "end": "12:15", "label": "Job"},
@@ -18,7 +18,7 @@ from collections import Counter
 
 def appointments(modules, code, skip):
     if code not in modules:
-        raise SystemExit(f"{code} is not in the data file. Fetch it first: python tumonline.py fetch ...")
+        raise SystemExit(f"{code} is not in the data file. Fetch it first: python scripts/tumonline.py fetch ...")
     return [dict(a, label=code) for part in modules[code]["parts"] for a in part["appointments"]
             if f'{code}:{a["weekday"]} {a["start"]}' not in skip]
 

@@ -62,7 +62,7 @@ T=$(grep -oP '(?<=<token>)[^<]+' ~/tok.xml) && sed -i "s/^TUMONLINE_TOKEN=.*/TUM
 ## Step 4: Test it
 
 ```bash
-python3 tumonline.py status
+python3 scripts/tumonline.py status
 ```
 
 You should see `Token works.` Done.

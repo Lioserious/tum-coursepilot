@@ -20,7 +20,7 @@ cd tum-coursepilot
 Follow [1-get-your-token.md](1-get-your-token.md) if you have not yet. Then check:
 
 ```bash
-python3 tumonline.py status
+python3 scripts/tumonline.py status
 ```
 
 ## Step 3: Start Claude in this folder
@@ -31,7 +31,7 @@ claude
 
 Claude Code reads `CLAUDE.md` automatically. That file explains the tools, the TUMonline pitfalls and the rules, for example never to print your token.
 
-When Claude runs a script for the first time, Claude Code asks for your permission. Allow `python3 tumonline.py` and `python3 check_plan.py`.
+When Claude runs a script for the first time, Claude Code asks for your permission. Allow `python3 scripts/tumonline.py` and `python3 scripts/check_plan.py`.
 
 ## Step 4: Try it
 
@@ -56,11 +56,11 @@ If you connect Google Calendar to Claude (claude.ai → Settings → Connectors)
 ## Useful commands (you or Claude can run them)
 
 ```bash
-python3 tumonline.py search "Process Mining" --semester 26W   # free-text search
-python3 tumonline.py module CITHN2004 --semester 26W          # all courses of a module, with dates
-python3 tumonline.py course 950945134                         # one course by its TUMonline id
-python3 tumonline.py fetch my-modules.txt --semester 26W      # many modules into data/modules.json
-python3 check_plan.py WIHN0033 MGTHN0130 --busy busy.json     # clash check
+python3 scripts/tumonline.py search "Process Mining" --semester 26W   # free-text search
+python3 scripts/tumonline.py module CITHN2004 --semester 26W          # all courses of a module, with dates
+python3 scripts/tumonline.py course 950945134                         # one course by its TUMonline id
+python3 scripts/tumonline.py fetch my-modules.txt --semester 26W      # many modules into data/modules.json
+python3 scripts/check_plan.py WIHN0033 MGTHN0130 --busy busy.json     # clash check
 ```
 
 Semester ids: `26W` = winter 2026/27, `27S` = summer 2027.
