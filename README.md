@@ -11,7 +11,7 @@ Shared by **hn.ai**, the place in Heilbronn where students show each other the A
 1. **Your module plan** (Modulhandbuch / study plan PDF) goes into `data/`. It tells Claude which modules count for what.
 2. **Your profile** (`my-profile.md`) tells Claude your campus, what you passed, what you still need and how you like to study.
 3. **TUMonline** tells Claude what actually runs this semester, when and where.
-4. You type `/plan-semester`. Claude combines all three and answers with a weekly timetable, ECTS per category, exam formats, clashes and deadlines.
+4. You type `/plan-semester` (or `/start` the first time). Claude combines all three and answers with a weekly timetable, ECTS per category, exam formats, clashes and deadlines.
 
 ## What you can ask
 
@@ -23,10 +23,23 @@ Shared by **hn.ai**, the place in Heilbronn where students show each other the A
 
 ## Quick start
 
-1. **Get your TUMonline token** (5 minutes): [docs/1-get-your-token.md](docs/1-get-your-token.md)
-2. **Set up Claude Code and this repo**: [docs/2-connect-claude.md](docs/2-connect-claude.md)
-3. **Add your module plan, campus and progress**: [docs/3-add-your-study-plan.md](docs/3-add-your-study-plan.md)
-4. Open a terminal in this folder, run `claude` and type `/plan-semester`.
+You need Python 3.8+, Git and [Claude Code](https://claude.com/claude-code).
+
+```bash
+git clone https://github.com/Lioserious/coursepilot.git
+cd coursepilot
+claude
+```
+
+Then type **`/start`**. The guide walks you through everything, one step at a time, and asks the right questions:
+
+1. **Token:** gets your personal TUMonline token set up and tested (about 5 minutes)
+2. **Module plan:** tells you where to find your Modulhandbuch and transcript, and reads them
+3. **Profile:** asks about your campus, progress, exam preferences, free days and key dates
+4. **Plan:** hands you over to `/plan-semester` for your timetable
+
+Prefer to read first? The guide follows these docs:
+[1. Token](docs/1-get-your-token.md) · [2. Claude Code](docs/2-connect-claude.md) · [3. Module plan and profile](docs/3-add-your-study-plan.md)
 
 ## What is in here
 
@@ -35,7 +48,9 @@ Shared by **hn.ai**, the place in Heilbronn where students show each other the A
 | `tumonline.py` | Talks to TUMonline: token check, course search (with campus sorting), all courses of a module, full course details |
 | `check_plan.py` | Checks a set of modules for clashes, date by date, including your own fixed commitments |
 | `CLAUDE.md` | Tells Claude how to use the tools and which TUMonline pitfalls to avoid |
-| `.claude/commands/plan-semester.md` | The `/plan-semester` workflow |
+| `.claude/skills/coursepilot-guide/` | The setup guide behind `/start`: asks questions, checks every step |
+| `.claude/commands/start.md` | `/start`, guided setup |
+| `.claude/commands/plan-semester.md` | `/plan-semester`, the planning workflow |
 | `my-profile.example.md` | Template for your campus, progress and preferences |
 | `data/` | Your module plan PDF and downloaded course data (ignored by git) |
 

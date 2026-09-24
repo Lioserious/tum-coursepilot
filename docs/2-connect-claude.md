@@ -11,7 +11,7 @@ This guide sets up Claude Code in the coursepilot folder, so Claude can use your
 ## Step 1: Get the repo
 
 ```bash
-git clone <this repo's URL> coursepilot
+git clone https://github.com/Lioserious/coursepilot.git
 cd coursepilot
 ```
 
@@ -34,6 +34,10 @@ Claude Code reads `CLAUDE.md` automatically. That file explains the tools, the T
 When Claude runs a script for the first time, Claude Code asks for your permission. Allow `python3 tumonline.py` and `python3 check_plan.py`.
 
 ## Step 4: Try it
+
+First time? Type `/start` and the guide sets up everything else with you.
+
+Already set up?
 
 ```
 /plan-semester

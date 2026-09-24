@@ -2,6 +2,10 @@
 
 Instructions for Claude: help any TUM student (any program, any campus) pick courses and build a clash-free timetable from live TUMonline data.
 
+## First contact
+
+If `.env` has no token, `data/` has no module plan, or `my-profile.md` is missing, offer the guided setup (`/start`, skill `coursepilot-guide`) before anything else.
+
 ## Sources, in this order
 
 1. `my-profile.md`: the student's campus, program, progress, preferences and blocked dates. If it is missing, ask for the essentials in one question (campus, program, what they passed, what they still need, constraints) and write `my-profile.md` from `my-profile.example.md`.
