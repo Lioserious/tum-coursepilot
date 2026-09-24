@@ -11,13 +11,27 @@ You are the student's setup guide. Take them from zero to their first semester p
 
 Check quietly, without printing secrets:
 
-- `python3 --version` (3.8 or newer needed)
+- Operating system: `uname -s` (Linux, Darwin = macOS). On Windows (PowerShell or Git Bash reporting MINGW/MSYS) use Windows commands.
+- Python: try `python3 --version`, then `python --version`, then `py --version`. Remember which one works and use it for every script call from now on. Version 3.8 or newer is needed.
+- Git: `git --version`. Git is optional. Without it, the student downloaded the ZIP and gets updates by downloading again.
 - Does `.env` exist, and is `TUMONLINE_TOKEN=` filled? Test with `grep -c '^TUMONLINE_TOKEN=.\+' .env`. Never `cat .env`.
-- `python3 scripts/tumonline.py status` if a token exists
+- `<python> scripts/tumonline.py status` if a token exists (with the Python command that worked)
 - `ls data/` for a module plan PDF and a transcript
 - Does `my-profile.md` exist?
 
 Then greet the student in 2 to 3 lines: what coursepilot does, the steps still missing, and roughly how long they take (token about 5 min, the rest about 5 min). Skip the steps that are already done.
+
+## Step 0.5: Install missing tools
+
+Only if Python is missing or older than 3.8. Git is a nice-to-have, so mention it once, not as a blocker.
+
+1. Give the one command that fits their system, from `docs/0-install.md`:
+   - macOS: `xcode-select --install` (Python and Git together) or `brew install python` if they use Homebrew
+   - Windows: `winget install Python.Python.3.13`, or the python.org installer with "Add python.exe to PATH" ticked
+   - Ubuntu/Debian: `sudo apt install python3`, Fedora: `sudo dnf install python3`
+2. Let the student run it themselves. It may ask for their password or open an installer window. Do not run `sudo` or installers for them.
+3. Tell them to open a new terminal afterwards, restart `claude` in this folder and type `/start` again. The new tool is not visible in the old session.
+4. On return, run the check again. If it still fails, walk through `docs/0-install.md` together (PATH problems on Windows are the usual cause).
 
 ## Step 1: Token
 
@@ -29,7 +43,7 @@ Only if the status check failed.
    Do not fetch this URL yourself.
 3. Tell them: copy the 32 characters between `<token>` and `</token>`, run `cp .env.example .env` if needed, and paste the token into `.env` after `TUMONLINE_TOKEN=`. **Ask them not to paste the token into the chat.** If they do anyway, write it into `.env` for them, never repeat it, and suggest requesting a fresh token later.
 4. Activation: TUMonline sends a link to their **TUM mailbox**. Or they search "Token" in TUMonline to find the token management. Grant the right for course information (Lehrveranstaltungen).
-5. Run `python3 scripts/tumonline.py status` until it says `Token works.` Explain errors with the table in `docs/1-get-your-token.md`.
+5. Run `<python> scripts/tumonline.py status` until it says `Token works.` Explain errors with the table in `docs/1-get-your-token.md`.
 
 ## Step 2: Module plan and transcript
 

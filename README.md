@@ -23,9 +23,19 @@ Shared by **hn.ai**, the place in Heilbronn where students show each other the A
 
 > "Does this seminar clash with anything in my plan?"
 
-## Quick start
+## Before you start
 
-You need Python 3.8+, Git and [Claude Code](https://claude.com/claude-code).
+You need three tools. No Python packages, the scripts use only the standard library.
+
+| Tool | Why | Check |
+|---|---|---|
+| [Claude Code](https://code.claude.com/docs/en/setup) (paid Claude plan) | runs the guide and does the planning | `claude --version` |
+| Python 3.8+ | runs the TUMonline scripts | `python3 --version` (Windows: `py --version`) |
+| Git (optional) | downloads the repo and updates | `git --version` |
+
+Something missing? **[docs/0-install.md](docs/0-install.md)** has the install command for macOS, Windows and Linux. Once Claude Code runs, `/start` checks Python and Git for you and tells you exactly what to install.
+
+## Quick start
 
 ```bash
 git clone https://github.com/Lioserious/tum-coursepilot.git
@@ -41,7 +51,7 @@ Then type **`/start`**. The guide walks you through everything, one step at a ti
 4. **Plan:** hands you over to `/plan-semester` for your timetable
 
 Prefer to read first? The guide follows these docs:
-[1. Token](docs/1-get-your-token.md) · [2. Claude Code](docs/2-connect-claude.md) · [3. Module plan and profile](docs/3-add-your-study-plan.md)
+[0. Install](docs/0-install.md) · [1. Token](docs/1-get-your-token.md) · [2. Claude Code](docs/2-connect-claude.md) · [3. Module plan and profile](docs/3-add-your-study-plan.md)
 
 ## What is in here
 

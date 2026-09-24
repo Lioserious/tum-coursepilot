@@ -25,6 +25,8 @@ python3 scripts/check_plan.py <CODE> <CODE> ... [--busy busy.json] [--skip "CODE
 
 Semester ids: `26W` = winter 2026/27, `27S` = summer 2027.
 
+On Windows, `python3` often does not exist. Use `py` or `python` instead, whichever answers `--version`.
+
 ## Rules
 
 - **Never print, echo or paste the token.** Do not `cat .env`. The scripts read it themselves.
