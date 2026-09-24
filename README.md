@@ -1,10 +1,12 @@
-# coursepilot
+# tum-coursepilot
 
 Plan your TUM semester with Claude. For every TUM student, any program, any campus: drop in your module plan, name your campus, and let Claude build the timetable.
 
 coursepilot connects [Claude Code](https://claude.com/claude-code) to TUMonline with your personal API token. Claude looks up every course of your program in a semester (dates, rooms, lecturers, exam format, content), checks them against your module plan and your progress, and proposes a clash-free timetable. You stop clicking through TUMonline tab by tab.
 
 Shared by **hn.ai**, the place in Heilbronn where students show each other the AI workflows they use for their studies.
+
+> **Unofficial community project.** tum-coursepilot is built by students of hn.ai. It is not affiliated with, endorsed by or supported by the Technical University of Munich (TUM). "TUM" and "TUMonline" refer to the university and its systems only to describe what this tool works with. For official information, always check TUMonline and your school.
 
 ## How it works
 
@@ -26,8 +28,8 @@ Shared by **hn.ai**, the place in Heilbronn where students show each other the A
 You need Python 3.8+, Git and [Claude Code](https://claude.com/claude-code).
 
 ```bash
-git clone https://github.com/Lioserious/coursepilot.git
-cd coursepilot
+git clone https://github.com/Lioserious/tum-coursepilot.git
+cd tum-coursepilot
 claude
 ```
 

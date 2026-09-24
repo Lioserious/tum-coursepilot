@@ -1,4 +1,4 @@
-# coursepilot
+# tum-coursepilot
 
 Instructions for Claude: help any TUM student (any program, any campus) pick courses and build a clash-free timetable from live TUMonline data.
 

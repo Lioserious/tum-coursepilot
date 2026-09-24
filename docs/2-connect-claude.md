@@ -1,6 +1,6 @@
 # 2. Connect Claude
 
-This guide sets up Claude Code in the coursepilot folder, so Claude can use your token and the planning tools.
+This guide sets up Claude Code in the tum-coursepilot folder, so Claude can use your token and the planning tools.
 
 ## What you need
 
@@ -11,8 +11,8 @@ This guide sets up Claude Code in the coursepilot folder, so Claude can use your
 ## Step 1: Get the repo
 
 ```bash
-git clone https://github.com/Lioserious/coursepilot.git
-cd coursepilot
+git clone https://github.com/Lioserious/tum-coursepilot.git
+cd tum-coursepilot
 ```
 
 ## Step 2: Add your token

@@ -41,7 +41,7 @@ When you activate it, TUMonline asks which rights the token gets. coursepilot ne
 
 ## Step 3: Store it in `.env`
 
-In the coursepilot folder:
+In the tum-coursepilot folder:
 
 ```bash
 cp .env.example .env
