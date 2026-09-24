@@ -1,0 +1,11 @@
+# Personal: never commit
+.env
+my-profile.md
+data/*
+!data/.gitkeep
+busy.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
